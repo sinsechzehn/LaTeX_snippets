@@ -1,4 +1,4 @@
-# LaTeX_snippets
+# LaTeX Snippets
 verschiedenste LaTeX Snippets welche im Laufe des Studiums Verwendung fanden
 
 ## fragebogen.tex
