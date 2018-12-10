@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper,german]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{pdflscape}
+\usepackage{pgfgantt}
+\usepackage{geometry}
+\geometry{
+  left=3cm,
+  right=3cm,
+  top=2.5cm,
+  bottom=2cm,
+  headheight=33pt
+}
+\begin{document}
+
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+\renewcommand\sfdefault{phv}
+\renewcommand\mddefault{mc}
+\renewcommand\bfdefault{bc}
+\setganttlinklabel{s-s}{START-TO-START}
+\setganttlinklabel{f-s}{FINISH-TO-START}
+\setganttlinklabel{f-f}{FINISH-TO-FINISH}
+\sffamily
+
+
+\begin{landscape}
+\section*{\centerline{Erste grobe Zeitplanung}}
+      \addcontentsline{toc}{section}{grafische Zusammenfassung Zeitplan Phasen und Meilensteine}
+\begin{ganttchart}[
+    canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+    hgrid style/.style={draw=black!5, line width=.75pt},
+    vgrid={*1{draw=black!5, line width=.75pt}},
+            x unit=1cm,
+            y unit title=0.7cm,
+            y unit chart=0.8cm,
+    time slot format=isodate,
+    time slot unit=month,
+    today=2018-08-14,
+    today rule/.style={
+      draw=black!64,
+      dash pattern=on 3.5pt off 4.5pt,
+      line width=1.5pt
+    },
+    today label font=\small\bfseries,
+    today label=Stand,
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize,
+    title label node/.append style={below=7pt},
+    bar label font=\mdseries\small\color{black!70},
+    bar label node/.append style={left=2cm},
+    bar/.append style={draw=none, fill=black!63},
+    bar incomplete/.append style={fill=barblue},
+    bar progress label font=\mdseries\footnotesize\color{black!70},
+    group incomplete/.append style={fill=groupblue},
+    group left shift=0,
+    group right shift=0,
+    group height=.5,
+    group peaks tip position=0,
+    group label node/.append style={left=.6cm},
+    group progress label font=\bfseries\small,
+    link/.style={-latex, line width=1.5pt, linkred},
+    link label font=\scriptsize\bfseries,
+    link label node/.append style={below left=-2pt and 0pt}
+   ]{2018-07-01}{2020-02-28}
+   \gantttitlecalendar[title label node/.append style={below left=7pt and -3pt}]{year, month}\\
+\ganttset{progress label text={}, link/.style={black, -to}}
+\ganttgroup{Projektinitialisierung}{2018-07-01}{2018-08-31} \\
+\ganttbar[progress=90, name=PI1]{Erstellung Skizze}{2018-07-01}{2018-08-31} \\
+\ganttgroup{Projektplanung}{2018-09-01}{2018-10-31} \\
+\ganttbar[progress=0, name=PP1]{Detaillierte Ausarbeitung}{2018-09-01}{2018-10-31} \\ \ganttnewline
+\ganttmilestone[progress=0, name=MS1]{Startworkshop}{2018-10-31} \ganttnewline
+\ganttgroup{Projektumsetzung}{2018-11-01}{2019-09-30} \\
+\ganttbar[progress=0, name=PU1]{Formulierung der Prozesse}{2018-11-01}{2019-06-30} \\
+\ganttbar[progress=0, name=PU2]{Modellierung der Prozesse}{2019-02-01}{2019-09-30} \\
+\ganttgroup{Technische Umsetzung}{2019-05-31}{2020-01-31} \\
+\ganttbar[progress=0, name=TU1]{Aufsetzen Datenbank}{2019-05-31}{2019-08-31} \\
+\ganttbar[progress=0, name=TU2]{Einpflegen der Daten}{2019-08-31}{2020-01-31} \ganttnewline
+\ganttmilestone[progress=0, name=MS2]{Übergabe}{2020-02-28}
+\ganttlink{PI1}{PP1}
+\ganttlink{PP1}{MS1}
+\ganttlink{MS1}{PU1}
+\ganttlink{PU1}{PU2}
+\ganttlink{PU2}{TU2}
+\ganttlink{TU2}{MS2}
+\end{ganttchart}
+\end{landscape}
+\end{document}
