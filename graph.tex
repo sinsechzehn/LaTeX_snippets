@@ -1,0 +1,43 @@
+\documentclass[10pt,a4paper]{article} % oder: {book}, {report}
+\usepackage[ngerman]{babel} % Neue deutsche Silbentrennung
+\usepackage[utf8]{inputenc} % Zeichenkodierung UTF-8 (Unicode). Editor muss
+\usepackage[T1]{fontenc} % Korrektes Trennen von Wörtern mit Umlauten
+% und Akzenten.
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm, compat=1.15}
+\usepackage{lmodern} % Type-1-Schriftart für das PDF-Dokument
+\begin{document}
+\section{Laufzeitverhalten abschätzen}
+\subsection{Summe der geraden Fibonacci Zahlen}
+     \begin{tabular}{|c|c|}\hline
+       \textbf{max int}  & \textbf{Zeit in Nanosek.} \\ \hline
+       5000           & 149             \\ \hline
+       10000       & 521             \\ \hline
+       50000        & 12129             \\ \hline
+       100000        & 48143             \\ \hline
+       500000        & 80218             \\ \hline
+     \end{tabular}
+
+    \vspace{0.7cm}
+
+\begin{tikzpicture}
+  \begin{axis}[
+  title={Aufgabe 3: Summe der geraden Fibonacci Zahlen},
+    axis lines=middle,
+    axis line style={->},
+    x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+    y label style={at={(axis description cs:-0.2,.5)},rotate=90,anchor=south},
+    xlabel={Anzahl der getesteten Zahlen},
+    ylabel={benötigte Zeit in Nanosekunden}]
+
+    \addplot coordinates {
+      (0, 0)
+      (5000, 149)
+      (10000, 521)
+      (50000, 12129)
+      (100000, 48143)
+      (500000, 80218)
+    };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
