@@ -1,0 +1,50 @@
+\documentclass[parskip=half,a4paper]{scrartcl}
+
+% Seitenränder
+\usepackage{geometry}
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2cm,
+  headheight=33pt
+}
+
+% Kopf- und Fusszeile
+\usepackage[
+  headsepline, plainheadsepline,
+  footsepline, plainfootsepline
+]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead*{obeneins}
+\ohead*{obenzwei}
+\ifoot*{unteneins}
+\ofoot*{untenzwei}
+\AtEndDocument{\ofoot{}}
+
+\usepackage{selinput}
+\SelectInputMappings{adieresis={ä},  germandbls={ß}}
+\usepackage[ngerman]{babel}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\begin{document}
+
+\section*{Feedbackbogen zum Startworkshop am 12.12.2018}
+\begin{Form}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={red},borderstyle=U}
+
+\CheckBox[name=Checkbox01]{\textbf{Würdet ihr den Startworkshop nochmal besuchen?}} \\
+
+\ChoiceMenu[combo, name=Auswahl01]{\textbf{Wie hat euch der Tag insgesammt gefallen?:}}%
+{sehr gut, gut, ok, schlecht, sehr schlecht, weiss nicht} \\
+
+\textbf{Was hätte eurer Meinung nach bei der Workshops besser sein können?:}\\[0.75ex]
+\TextField[multiline, name=OffeneFrage01,width=0.9\textwidth,  height=3.25cm,borderstyle=D,value={}, backgroundcolor={0.95 0.95 0.95}]{}
+
+\textbf{Was hat euch bei den Workshops gut gefallen?:}\\[0.75ex]
+\TextField[multiline, name=OffeneFrage02,width=0.9\textwidth,  height=3.25cm,borderstyle=D,value={}, backgroundcolor={0.95 0.95 0.95}]{}
+
+\end{Form}
+\end{document}
