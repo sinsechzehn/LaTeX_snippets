@@ -35,16 +35,13 @@
 \begin{Form}
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={red},borderstyle=U}
 
-\CheckBox[name=Checkbox01]{\textbf{Würdet ihr den Startworkshop nochmal besuchen?}} \\
+\CheckBox[name=Checkbox01]{\textbf{War das Thema gut?}} \\
 
-\ChoiceMenu[combo, name=Auswahl01]{\textbf{Wie hat euch der Tag insgesammt gefallen?:}}%
+\ChoiceMenu[combo, name=Auswahl01]{\textbf{Wie hat euch das Thema insgesammt gefallen?:}}%
 {sehr gut, gut, ok, schlecht, sehr schlecht, weiss nicht} \\
 
-\textbf{Was hätte eurer Meinung nach bei der Workshops besser sein können?:}\\[0.75ex]
+\textbf{Was hätte eurer Meinung nach besser sein können?:}\\[0.75ex]
 \TextField[multiline, name=OffeneFrage01,width=0.9\textwidth,  height=3.25cm,borderstyle=D,value={}, backgroundcolor={0.95 0.95 0.95}]{}
-
-\textbf{Was hat euch bei den Workshops gut gefallen?:}\\[0.75ex]
-\TextField[multiline, name=OffeneFrage02,width=0.9\textwidth,  height=3.25cm,borderstyle=D,value={}, backgroundcolor={0.95 0.95 0.95}]{}
 
 \end{Form}
 \end{document}
